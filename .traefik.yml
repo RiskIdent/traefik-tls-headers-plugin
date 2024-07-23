@@ -3,9 +3,10 @@ type: middleware
 iconPath: .assets/icon.png
 
 import: github.com/RiskIdent/traefik-tls-headers-plugin
+basePkg: plugin
 
 summary: 'Add TLS information to request headers'
 
 testData:
-  Headers:
-    X-TLS-Cipher: TLS_AES_128_GCM_SHA256
+  headers:
+    cipher: X-TLS-Cipher
