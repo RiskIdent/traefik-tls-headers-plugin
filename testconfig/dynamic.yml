@@ -1,0 +1,22 @@
+http:
+  routers:
+    my-router:
+      rule: "PathPrefix(`/`)"
+      service: my-service
+      entryPoints:
+        - websecure
+      middlewares:
+        - my-middleware
+
+  services:
+    my-service:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:8888"
+
+  middlewares:
+    my-middleware:
+      plugin:
+        tlsheaders:
+          headers:
+            cipher: X-TLS-Cipher

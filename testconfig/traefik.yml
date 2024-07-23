@@ -1,0 +1,18 @@
+entryPoints:
+  websecure:
+    address: ":443"
+    http:
+      tls: {}
+
+providers:
+  file:
+    filename: "/etc/traefik/dynamic.yml"
+
+api:
+  dashboard: true
+  insecure: true
+
+experimental:
+  localPlugins:
+    tlsheaders:
+      moduleName: github.com/RiskIdent/traefik-tls-headers-plugin
