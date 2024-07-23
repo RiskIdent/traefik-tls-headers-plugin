@@ -1,4 +1,4 @@
-package plugin_test
+package plugin
 
 import (
 	"context"
@@ -6,26 +6,24 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-
-	plugin "github.com/RiskIdent/traefik-tls-headers-plugin"
 )
 
 func TestInvalidConfig(t *testing.T) {
-	cfg := plugin.CreateConfig()
+	cfg := CreateConfig()
 	next := http.HandlerFunc(func(http.ResponseWriter, *http.Request) {})
-	_, err := plugin.New(context.Background(), next, cfg, "traefik-tls-headers-plugin")
+	_, err := New(context.Background(), next, cfg, "traefik-tls-headers-plugin")
 	if err == nil {
 		t.Fatal("expected error")
 	}
 }
 
 func TestTLSCipher(t *testing.T) {
-	cfg := plugin.CreateConfig()
+	cfg := CreateConfig()
 	cfg.Headers.Cipher = "X-TLS-Cipher"
 	next := http.HandlerFunc(func(_ http.ResponseWriter, r *http.Request) {
 		assertHeader(t, r.Header, "X-TLS-Cipher", "TLS_AES_128_GCM_SHA256")
 	})
-	handler, err := plugin.New(context.Background(), next, cfg, "traefik-tls-headers-plugin")
+	handler, err := New(context.Background(), next, cfg, "traefik-tls-headers-plugin")
 	if err != nil {
 		t.Fatal(err)
 	}
