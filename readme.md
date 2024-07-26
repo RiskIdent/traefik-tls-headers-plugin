@@ -13,7 +13,7 @@ middlewares:
     plugin:
       tlsheaders:
         headers:
-          cipher: X-TLS-Cipher
+          cipher: X-Tls-Cipher
 ```
 
 ## Supported fields
@@ -64,7 +64,7 @@ spec:
   plugin:
     tlsheaders:
       headers:
-        cipher: X-TLS-Cipher
+        cipher: X-Tls-Cipher
 ```
 
 </details>

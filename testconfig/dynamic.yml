@@ -19,4 +19,4 @@ http:
       plugin:
         tlsheaders:
           headers:
-            cipher: X-TLS-Cipher
+            cipher: X-Tls-Cipher

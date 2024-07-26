@@ -19,9 +19,9 @@ func TestInvalidConfig(t *testing.T) {
 
 func TestTLSCipher(t *testing.T) {
 	cfg := CreateConfig()
-	cfg.Headers.Cipher = "X-TLS-Cipher"
+	cfg.Headers.Cipher = "X-Tls-Cipher"
 	next := http.HandlerFunc(func(_ http.ResponseWriter, r *http.Request) {
-		assertHeader(t, r.Header, "X-TLS-Cipher", "TLS_AES_128_GCM_SHA256")
+		assertHeader(t, r.Header, "X-Tls-Cipher", "TLS_AES_128_GCM_SHA256")
 	})
 	handler, err := New(context.Background(), next, cfg, "traefik-tls-headers-plugin")
 	if err != nil {
