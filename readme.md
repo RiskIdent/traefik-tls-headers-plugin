@@ -16,6 +16,9 @@ middlewares:
           cipher: X-TLS-Cipher
 ```
 
+## Supported fields
+- `cipher`: The cipher used for the connection. See the docs [CipherSuiteName](https://pkg.go.dev/crypto/tls#CipherSuiteName) for more information.
+
 ### Configuration
 
 Traefik static configuration must define the module name (as is usual for Go packages).
@@ -85,21 +88,11 @@ The traefik test configuration is located in the testconfig directory.
 And finally, make a request to the Traefik instance:
 
 ```bash
-curl https://localhost -k
+curl -sS https://localhost -k | grep X-Tls-Cipher
 ```
 
 The response should contain the header(s) you set up.
 
 ```
-Host: localhost
-User-Agent: curl/7.81.0
-Accept: */*
-X-Forwarded-For: 127.0.0.1
-X-Forwarded-Host: localhost
-X-Forwarded-Port: 443
-X-Forwarded-Proto: https
-X-Forwarded-Server: ri-t-0940
-X-Real-Ip: 127.0.0.1
 X-Tls-Cipher: TLS_AES_128_GCM_SHA256
-Accept-Encoding: gzip
 ```
