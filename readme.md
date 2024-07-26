@@ -96,3 +96,7 @@ The response should contain the header(s) you set up.
 ```
 X-Tls-Cipher: TLS_AES_128_GCM_SHA256
 ```
+
+## Credits
+
+Icon made by https://www.flaticon.com/de/kostenloses-icon/tls-protokoll_4896619
