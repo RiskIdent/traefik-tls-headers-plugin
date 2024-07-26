@@ -18,3 +18,14 @@ vendor:
 
 clean:
 	rm -rf ./vendor
+
+start_headers_reader:
+	python3 testconfig/printheaders.py
+
+testcontainer:
+	docker build -t traefiktest .
+	docker run\
+		--rm \
+		--name traefiktest \
+		--network host \
+		-it traefiktest

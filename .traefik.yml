@@ -1,12 +1,12 @@
-displayName: Demo Plugin
+displayName: TLS headers
 type: middleware
 iconPath: .assets/icon.png
 
-import: github.com/traefik/plugindemo
+import: github.com/RiskIdent/traefik-tls-headers-plugin
+basePkg: plugin
 
-summary: '[Demo] Add Request Header'
+summary: 'Add TLS information to request headers'
 
 testData:
-  Headers:
-    X-Demo: test
-    X-URL: '{{URL}}'
+  headers:
+    cipher: X-Tls-Cipher
