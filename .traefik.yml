@@ -9,4 +9,4 @@ summary: 'Add TLS information to request headers'
 
 testData:
   headers:
-    cipher: X-TLS-Cipher
+    cipher: X-Tls-Cipher
