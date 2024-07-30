@@ -23,7 +23,9 @@ middlewares:
 
 Traefik static configuration must define the module name (as is usual for Go packages).
 
-The following declaration (given here in YAML) defines a plugin:
+#### Static configuration
+
+The following static config defines a plugin:
 
 <details open><summary>File (YAML)</summary>
 
@@ -50,6 +52,7 @@ experimental:
 
 </details>
 
+#### Dynamic configuration
 
 <details><summary>Kubernetes</summary>
 
