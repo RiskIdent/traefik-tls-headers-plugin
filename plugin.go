@@ -9,7 +9,7 @@ import (
 	"net/http"
 )
 
-var errMissingHeaderConfig = errors.New("missing header config: must set headers.cipher")
+var errMissingHeaderConfig = errors.New("missing header config: must set headers.version or headers.cipher")
 
 // Config the plugin configuration.
 type Config struct {
@@ -18,6 +18,7 @@ type Config struct {
 
 // ConfigHeaders defines the headers to use for the different values.
 type ConfigHeaders struct {
+	Version string `json:"version,omitempty"`
 	Cipher string `json:"cipher,omitempty"`
 }
 
@@ -49,6 +50,9 @@ func New(_ context.Context, next http.Handler, config *Config, name string) (htt
 }
 
 func (a *TLSHeadersPlugin) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
+	if a.headers.Version != "" && req.TLS != nil {
+		req.Header.Set(a.headers.Version, tls.VersionName(req.TLS.Version))
+	}
 	if a.headers.Cipher != "" && req.TLS != nil {
 		req.Header.Set(a.headers.Cipher, tls.CipherSuiteName(req.TLS.CipherSuite))
 	}

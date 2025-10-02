@@ -13,10 +13,12 @@ middlewares:
     plugin:
       tlsheaders:
         headers:
+          version: X-Tls-Version
           cipher: X-Tls-Cipher
 ```
 
 ## Supported fields
+- `version`: The TLS version used for the connection. See the docs [VersionName](https://pkg.go.dev/crypto/tls#VersionName) for more information.
 - `cipher`: The cipher used for the connection. See the docs [CipherSuiteName](https://pkg.go.dev/crypto/tls#CipherSuiteName) for more information.
 
 ### Configuration
@@ -67,6 +69,7 @@ spec:
   plugin:
     tlsheaders:
       headers:
+        version: X-Tls-Version
         cipher: X-Tls-Cipher
 ```
 
@@ -91,13 +94,14 @@ The traefik test configuration is located in the testconfig directory.
 And finally, make a request to the Traefik instance:
 
 ```bash
-curl -sS https://localhost -k | grep X-Tls-Cipher
+curl -sS https://localhost -k | grep X-Tls
 ```
 
 The response should contain the header(s) you set up.
 
 ```
 X-Tls-Cipher: TLS_AES_128_GCM_SHA256
+X-Tls-Version: TLS 1.3
 ```
 
 ## Credits

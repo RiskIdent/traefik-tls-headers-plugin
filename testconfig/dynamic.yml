@@ -19,4 +19,5 @@ http:
       plugin:
         tlsheaders:
           headers:
+            version: X-Tls-Version
             cipher: X-Tls-Cipher
