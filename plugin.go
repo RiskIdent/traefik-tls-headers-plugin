@@ -19,7 +19,7 @@ type Config struct {
 // ConfigHeaders defines the headers to use for the different values.
 type ConfigHeaders struct {
 	Version string `json:"version,omitempty"`
-	Cipher string `json:"cipher,omitempty"`
+        Cipher  string `json:"cipher,omitempty"`
 }
 
 // CreateConfig creates the default plugin configuration.
