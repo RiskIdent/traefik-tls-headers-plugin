@@ -38,7 +38,7 @@ experimental:
   plugins:
     tlsheaders:
       moduleName: github.com/RiskIdent/traefik-tls-headers-plugin
-      version: v0.1.1
+      version: v0.2.0
 ```
 
 </details>
@@ -49,7 +49,7 @@ experimental:
 # Static configuration
 
 --experimental.plugins.tlsheaders.moduleName=github.com/RiskIdent/traefik-tls-headers-plugin
---experimental.plugins.tlsheaders.version=v0.1.1
+--experimental.plugins.tlsheaders.version=v0.2.0
 ```
 
 </details>
